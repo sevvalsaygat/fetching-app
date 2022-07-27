@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState, useEffect } from 'react'
 
 function Cities() {
@@ -5,9 +6,8 @@ function Cities() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://tr-cities-api.herokuapp.com/cities?page=1&per_page=100')
-      .then((res) => res.json())
-      .then((data) => setCities(data.cities))
+    axios('https://tr-cities-api.herokuapp.com/cities?page=1&per_page=100')
+      .then((res) => setCities(res.data.cities))
       .catch(e => console.log(e))
       .finally(() => setIsLoading(false));
   }, [])
