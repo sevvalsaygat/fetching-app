@@ -11,6 +11,7 @@ function Users() {
       .catch(e => console.log(e))
       .finally(() => setIsLoading(false));
   }, [])
+  
   return (
     <div>
       <h1>Users</h1>
